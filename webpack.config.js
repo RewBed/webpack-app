@@ -33,7 +33,13 @@ module.exports = {
     devServer: {
         contentBase: path.join(__dirname, variables.SERVER_FOLDER),
         compress: true,
-        port: variables.SERVER_PORT
+        port: variables.SERVER_PORT,
+        proxy: {
+            "/api": {
+                target: variables.API_PROXY,
+                secure: false
+            }
+        }
     },
     plugins: [
         new MiniCssExtractPlugin({

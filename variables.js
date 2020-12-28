@@ -25,6 +25,13 @@ module.exports.variables = {
     BUNDLE_CSS_FILE_NAME: 'index.bundle.css',
 
     /**
+     * Прокси для ajax
+     * только для маршрутов API
+     * Например http://localhost:8080
+     */
+    API_PROXY: '',
+
+    /**
      * Параметры HTML шаблона
      */
     HTML_TEMPLATE: {
