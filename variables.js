@@ -29,13 +29,15 @@ module.exports.variables = {
      * только для маршрутов API
      * Например http://localhost:8080
      */
-    API_PROXY: '',
+    API_PROXY: 'http://localhost:8080',
 
     /**
      * Параметры HTML шаблона
      */
     HTML_TEMPLATE: {
         TEMPLATE: './src/index.ejs',
-        TITLE: 'Webpack App'
+        PARAMETERS: {
+            TITLE: 'Webpack App',
+        }
     }
 };

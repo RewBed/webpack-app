@@ -4,12 +4,12 @@ let HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const variables = require('../variables').variables;
 
+console.log(variables.HTML_TEMPLATE.PARAMETERS);
+
 module.exports = merge(common, {
     plugins: [
         new HtmlWebpackPlugin({
-            templateParameters: {
-                title: variables.HTML_TEMPLATE.TITLE
-            },
+            templateParameters: variables.HTML_TEMPLATE.PARAMETERS,
             template: variables.HTML_TEMPLATE.TEMPLATE
         })
     ]
