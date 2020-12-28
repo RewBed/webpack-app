@@ -2,6 +2,7 @@
 
 ##### Шаблон приложения с поддержкой:
 - js
+- vue.js
 - css
 - scss
 - sass
@@ -36,9 +37,22 @@
 | `TEMPLATE` | путь до шаблона (относительно `variables.js`) | `./src/index.ejs` |
 | `PARAMETERS.TITLE` | заголовок страницы | `Webpack App` |
 
-Так же объект `HTML_TEMPLATE.PARAMETERS` можно расширять своими параметрами и использовать их файле шаблона
+Так же объект `HTML_TEMPLATE.PARAMETERS` можно расширять своими свйоствами и использовать их файле шаблона
 
 ###### Пример
+
+```js
+module.exports.variables = {
+    /* ... */
+    HTML_TEMPLATE: {
+        TEMPLATE: './src/index.ejs',
+        PARAMETERS: {
+            TITLE: 'Webpack App',
+            h1: 'Heading H1'
+        }
+    }
+};
+```
 
 ```html
 <!DOCTYPE html>
@@ -51,6 +65,20 @@
         <h1><%= h1 %></h1>
     </body>
 </html>
+```
+
+##### Vue.js
+
+Vue.js поддерживается по умолчанию  
+Для его работы нужно добавить следующий код в `index.js`
+
+```js
+import Vue from 'vue';
+import App from './App.vue';
+
+new Vue({
+    render: h => h(App)
+}).$mount('#app');
 ```
 
 

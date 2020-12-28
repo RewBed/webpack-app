@@ -1,5 +1,6 @@
 let path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const variables = require('./variables').variables;
 
 module.exports = {
@@ -13,6 +14,10 @@ module.exports = {
     },
     module: {
         rules: [
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader'
+            },
             {
                 test: /\.s[ac]ss$/i,
                 use: [
@@ -39,9 +44,15 @@ module.exports = {
                 target: variables.API_PROXY,
                 secure: false
             }
-        }
+        },
+        setup(app) {
+            app.post('*', (req, res) => {
+                res.redirect(req.originalUrl);
+            });
+        },
     },
     plugins: [
+        new VueLoaderPlugin(),
         new MiniCssExtractPlugin({
             filename: variables.BUNDLE_CSS_FILE_NAME,
         }),

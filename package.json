@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "vue": "^2.6.12",
+    "vue-loader": "^15.9.6",
+    "vue-template-compiler": "^2.6.12"
+  },
   "devDependencies": {
     "css-loader": "^5.0.1",
     "html-webpack-plugin": "^4.5.0",
