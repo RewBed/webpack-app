@@ -10,7 +10,8 @@ module.exports = {
     devtool: 'source-map',
     output: {
         path: path.resolve(__dirname, variables.DIST_PATH),
-        filename: variables.BUNDLE_JS_FILE_NAME
+        filename: variables.BUNDLE_JS_FILE_NAME,
+        publicPath: '',
     },
     module: {
         rules: [
@@ -23,6 +24,7 @@ module.exports = {
                 use: [
                     MiniCssExtractPlugin.loader,
                     'css-loader',
+                    'resolve-url-loader',
                     'sass-loader'
                 ]
             },
@@ -33,6 +35,29 @@ module.exports = {
                     'css-loader'
                 ]
             },
+            {
+                test: /\.(png|jpe?g|gif)$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            outputPath: 'images',
+                        },
+                    },
+                ],
+            },
+            {
+                test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'fonts'
+                        }
+                    }
+                ]
+            }
         ]
     },
     devServer: {
