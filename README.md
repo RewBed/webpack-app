@@ -1,5 +1,13 @@
 # Webpack App
 
+##### Установка
+
+`git clone https://github.com/RewBed/webpack-app.git`  
+`cd webpack-app`
+
+Windows `rd .git /s /q`  
+Unix `rm .git /s /q`
+
 ##### Шаблон приложения с поддержкой:
 - js
 - vue.js
