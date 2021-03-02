@@ -16,6 +16,15 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.js$/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        plugins: ["transform-class-properties"]
+                    }
+                }
+            },
+            {
                 test: /\.vue$/,
                 loader: 'vue-loader'
             },
